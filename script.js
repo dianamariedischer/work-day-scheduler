@@ -2,6 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+dayjs.extend(dayjs_plugin_advancedFormat);
 
 // adds all of the time blocks and their text areas
 function initCalendar() {
@@ -85,8 +86,8 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  // get current hour in military time
-  var currentHour = dayjs().format('H');
+  // get current hour in military time as an int for comparisons
+  var currentHour = parseInt(dayjs().format('H'));
 
   // for loop that applies past present and future classes depending on time
   for (i=9; i<18; i++) {
@@ -118,6 +119,6 @@ $(function () {
   }
 
   // TODO: Add code to display the current date in the header of the page.
-  var currentDay = dayjs().format("dddd - MM.DD.YYYY");
+  var currentDay = dayjs().format("dddd, MMMM Do");
   $('#current-day').text(currentDay);
 });
